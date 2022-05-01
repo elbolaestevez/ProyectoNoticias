@@ -9,6 +9,7 @@ class ListNews extends Component {
     super(props);
     this.state = {
       articles: this.props.defaultList,
+      userArticles: this.props.userArticles,
     };
   }
 
@@ -36,6 +37,9 @@ class ListNews extends Component {
         <h1>Articulos NyTimes</h1>
         {this.state.articles.map((article, i) => (
           <Card key={i}>{article}</Card>
+        ))}
+        {this.state.userArticles.map((articlenew, i) => (
+          <Card key={i}>{articlenew}</Card>
         ))}
         {/* <Form updateArticles={this.updateArticles} /> */}
       </div>
