@@ -15,7 +15,7 @@ class ListNews extends Component {
 
   async componentDidMount() {
     const resp = await axios.get(
-      "https://api.nytimes.com/svc/search/v2/articlesearch.json?q={query}&fq=news_desk:(%22Sports%22)&api-key=w45qEYAPypLD4KjKe3pgLxZN8pkvz1t2"
+      `https://api.nytimes.com/svc/search/v2/articlesearch.json?q={query}&fq=news_desk:(%22Sports%22)&api-key=${process.env.REACT_APP_API_KEY}`
     );
     const datawithoutslice = await resp.data.response.docs;
     const data = datawithoutslice.slice(0, 5);
@@ -44,7 +44,7 @@ class ListNews extends Component {
 
   render() {
     return (
-      <div>
+      <div className="list">
         <h1>Articulos NyTimes</h1>
         {this.state.articles.map((article, i) => (
           <Card key={i} remove={() => this.removeNewFetch(i)}>

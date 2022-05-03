@@ -17,7 +17,7 @@ class Main extends Component {
 
   render() {
     return (
-      <div style={{ background: "lightblue" }}>
+      <div className="list">
         <Routes>
           <Route
             element={<ListNews userArticles={this.state.userArticles} />}

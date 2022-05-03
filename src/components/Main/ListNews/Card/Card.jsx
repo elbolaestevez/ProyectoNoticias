@@ -5,7 +5,7 @@ class Card extends Component {
     const article = this.props.children;
 
     return (
-      <div>
+      <div className="list">
         <h1>{article.headline.main}</h1>{" "}
         <a href={article.web_url}> {article.abstract} </a>
         <button className="btn" onClick={this.props.remove}>

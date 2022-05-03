@@ -1,0 +1,11 @@
+@import "../utils/mixins.scss";
+
+main{
+    @include column;
+    
+}
+
+.list{
+    width: 100%;
+    background-color: #c2c5aa;
+}

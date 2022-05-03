@@ -27,7 +27,7 @@ class Home extends Component {
           <input type="text" id="user" name="user" />
           <input type="submit" value="Enviar" />
         </form>
-        <p>Usuario introducido:{this.state.user ? this.state.user : "--"}</p>
+        {/* <p>Usuario introducido:{this.state.user ? this.state.user : "--"}</p> */}
       </div>
     );
   }

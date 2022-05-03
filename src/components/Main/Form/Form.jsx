@@ -24,14 +24,7 @@ class Form extends Component {
       return <Navigate to="/list" />;
     }
     return (
-      <div
-        style={{
-          background: "cyan",
-          borderRadius: "20px",
-          border: "2px solid black",
-          padding: 10,
-        }}
-      >
+      <div>
         <h1>Formulario para articulo</h1>
         <form className="row" onSubmit={this.onSubmit}>
           <div className="col-md-3">

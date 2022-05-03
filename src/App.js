@@ -21,7 +21,7 @@ class App extends React.Component {
     this.login = this.login.bind(this);
   }
   logout() {
-    this.setState("");
+    this.setState({ user: "" });
   }
 
   login(name) {
