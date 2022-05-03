@@ -3,6 +3,7 @@ import React from "react";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
+import "./styles/style.scss";
 import { BrowserRouter } from "react-router-dom";
 
 import { userContext } from "./context/userContext";

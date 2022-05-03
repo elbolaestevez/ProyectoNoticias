@@ -26,22 +26,36 @@ class ListNews extends Component {
     });
     this.updateArticles = (newArticle) => {
       this.setState({
-        articleForm: [...this.state.userArticles, newArticle],
+        articleForm: [newArticle],
+        // articleForm: [...this.state.userArticles, newArticle],
       });
     };
   }
+  removeNewFetch = (i) => {
+    const remainingNews = this.state.articles.filter((news, j) => i !== j);
+    console.log(remainingNews);
+    this.setState({ articles: remainingNews });
+  };
+  removeNewForm = (i) => {
+    const remainingNews = this.state.userArticles.filter((news, j) => i !== j);
+    console.log(remainingNews);
+    this.setState({ userArticles: remainingNews });
+  };
 
   render() {
     return (
       <div>
         <h1>Articulos NyTimes</h1>
         {this.state.articles.map((article, i) => (
-          <Card key={i}>{article}</Card>
+          <Card key={i} remove={() => this.removeNewFetch(i)}>
+            {article}
+          </Card>
         ))}
         {this.state.userArticles.map((articlenew, i) => (
-          <Card key={i}>{articlenew}</Card>
+          <Card key={i} remove={() => this.removeNewForm(i)}>
+            {articlenew}
+          </Card>
         ))}
-        {/* <Form updateArticles={this.updateArticles} /> */}
       </div>
     );
   }

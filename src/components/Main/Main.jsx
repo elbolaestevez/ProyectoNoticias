@@ -11,7 +11,7 @@ class Main extends Component {
 
   updateArticles = (newArticle) => {
     this.setState({
-      userArticles: [...this.state.userArticles, newArticle],
+      userArticles: [newArticle],
     });
   };
 
