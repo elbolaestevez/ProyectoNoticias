@@ -1,18 +1,24 @@
 @import "../utils/variable.scss";
-
-.app {
-    text-align: center;
-    background-color: $background-color;
-    padding-bottom: 2em;
-    min-height: 100vh;
-    position: relative;
+body {
+  background-color: #c2c5aa;
+  font-family: "josefin sans", sans-serif;
 }
-    
+a {
+  text-decoration: none;
+}
+.app {
+  text-align: center;
+  background-color: $background-color;
+  padding-bottom: 2em;
+  min-height: 100vh;
+  position: relative;
+}
+
 .App-header {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
 }

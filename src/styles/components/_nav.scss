@@ -1,19 +1,22 @@
 @import "../utils/variable.scss";
 
-.nav{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    
-    width: 70%;
-    font-weight: 500;
-    &__element {
-        text-decoration:none;
-        color: $text-color;
-        margin: 0 0.25rem;
-        font-size: 1.8rem;
-        border-radius: 20%;
-        padding: 3px;
-        letter-spacing: 5px;
+.nav {
+  display: flex;
+  font-weight: 500;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  &__left {
+    &__logo {
+      width: 50px;
     }
+  }
+  &__right {
+    a {
+      color: $menu-color;
+      font-weight: 600;
+      padding-right: 30px;
+      text-transform: uppercase;
+    }
+  }
 }

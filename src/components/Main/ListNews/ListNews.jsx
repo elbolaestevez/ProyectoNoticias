@@ -45,7 +45,7 @@ class ListNews extends Component {
   render() {
     return (
       <div className="list">
-        <h1>Articulos NyTimes</h1>
+        <h1>Articulos de Deportes NyTimes</h1>
         {this.state.articles.map((article, i) => (
           <Card key={i} remove={() => this.removeNewFetch(i)}>
             {article}
