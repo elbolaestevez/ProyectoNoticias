@@ -9,12 +9,13 @@ class ListNews extends Component {
     super(props);
     this.state = {
       articles: this.props.defaultList,
+      userArticles: this.props.userArticles,
     };
   }
 
   async componentDidMount() {
     const resp = await axios.get(
-      "https://api.nytimes.com/svc/search/v2/articlesearch.json?q={query}&fq=news_desk:(%22Sports%22)&api-key=w45qEYAPypLD4KjKe3pgLxZN8pkvz1t2"
+      `https://api.nytimes.com/svc/search/v2/articlesearch.json?q={query}&fq=news_desk:(%22Sports%22)&api-key=${process.env.REACT_APP_API_KEY}`
     );
     const datawithoutslice = await resp.data.response.docs;
     const data = datawithoutslice.slice(0, 5);
@@ -25,19 +26,36 @@ class ListNews extends Component {
     });
     this.updateArticles = (newArticle) => {
       this.setState({
-        articleForm: [...this.state.userArticles, newArticle],
+        articleForm: [newArticle],
+        // articleForm: [...this.state.userArticles, newArticle],
       });
     };
   }
+  removeNewFetch = (i) => {
+    const remainingNews = this.state.articles.filter((news, j) => i !== j);
+    console.log(remainingNews);
+    this.setState({ articles: remainingNews });
+  };
+  removeNewForm = (i) => {
+    const remainingNews = this.state.userArticles.filter((news, j) => i !== j);
+    console.log(remainingNews);
+    this.setState({ userArticles: remainingNews });
+  };
 
   render() {
     return (
-      <div>
-        <h1>Articulos NyTimes</h1>
+      <div className="list">
+        <h1>Articulos de Deportes NyTimes</h1>
         {this.state.articles.map((article, i) => (
-          <Card key={i}>{article}</Card>
+          <Card key={i} remove={() => this.removeNewFetch(i)}>
+            {article}
+          </Card>
         ))}
-        {/* <Form updateArticles={this.updateArticles} /> */}
+        {this.state.userArticles.map((articlenew, i) => (
+          <Card key={i} remove={() => this.removeNewForm(i)}>
+            {articlenew}
+          </Card>
+        ))}
       </div>
     );
   }
