@@ -6,13 +6,13 @@ import { Route, Routes } from "react-router-dom";
 
 class Main extends Component {
   state = {
-    userArticles: this.props.userArticles,
+    userArticles: [],
   };
 
   updateArticles = (newArticle) => {
-    this.setState({
-      userArticles: [newArticle],
-    });
+    // this.setState({
+    //   userArticles: [...this.state.userArticle, newArticle],
+    this.setState({ userArticles: [...this.state.userArticles, newArticle] });
   };
 
   render() {
